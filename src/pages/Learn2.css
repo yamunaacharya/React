@@ -1,0 +1,68 @@
+/* Learn2.css */
+
+/* Container styles */
+.learn2-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  /* Title styling */
+  .learn2-title {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Product count styling */
+  .product-count {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Product list container */
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Individual product card styling */
+  .product-card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Product title styling */
+  .product-title {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Product price styling */
+  .product-price {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  /* Product image styling */
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+    object-fit: cover;
+  }
+  
