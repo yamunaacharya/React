@@ -1,11 +1,10 @@
 import { Routes, Route, Outlet, Link } from "react-router";
-
-import ProductPage from "./pages/product";
-import Homepage from "./pages/homePage";
+import HomePage from "./pages/homePage";
 import SingleProductPage, {
   OverviewPage,
   ReviewPage,
 } from "./pages/product/SingleProduct";
+import ProductPage from "./pages/product";
 
 export default function AppRoutes() {
   return (
@@ -14,24 +13,25 @@ export default function AppRoutes() {
         path="/"
         element={
           <div>
-            <Navbar /> <Outlet /> <Footer />{" "}
+            <Navbar />
+            <Outlet />
+            <Footer />
           </div>
         }
       >
-        <Route index element={<Homepage />} />
-        <Route path="contact" element={<div>Contact pages</div>} />
+        <Route index element={<HomePage />} />
+        <Route path="contact" element={<div>Contact Page</div>} />
         <Route path="product">
-          <Route element={ProductPage} index />
-          <Route path=":productID" elememt={<SingleProductPage />} />
-          <Route path="review" elememt={<ReviewPage />} />
-          <Route path="overview" elememt={<OverviewPage />} />
+          <Route element={<ProductPage />} index />
+          <Route path=":productID" element={<SingleProductPage />}>
+            <Route path="review" element={<ReviewPage />} />
+            <Route index element={<OverviewPage />} />
+          </Route>
         </Route>
-        <Route path="*" element>
-          404
-        </Route>
+        <Route path="*" element={<div>404</div>} />
       </Route>
-        <Route path="login" element={<div>Login Page</div>} />
-        <Route path="register" element={<div>Register Page</div>} />
+      <Route path="login" element={<div>Login Page</div>} />
+      <Route path="register" element={<div>Register Page</div>} />
     </Routes>
   );
 }

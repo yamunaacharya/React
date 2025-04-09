@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router";
+import { Link, Outlet, useLocation, useParams } from "react-router";
 export default function SingleProductPage() {
+  const location = useLocation();
+  console.log(location);
   const { productID } = useParams();
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,6 +28,8 @@ export default function SingleProductPage() {
   useEffect(() => {
     getData();
   }, []);
+  const isINTabPage = location?.pathname?.split("/").filter(Boolean).at(-1);
+  console.log(isINTabPage == "review" ? "../" : "#");
   return (
     <div>
       <h1>Single Product Page</h1>
@@ -52,7 +56,7 @@ export default function SingleProductPage() {
           <Link to="review">review</Link>
         </button>
         <button>
-          <Link to="overview">overview</Link>
+          <Link to={isINTabPage == "review" ? `./` : "#"}>overview</Link>
         </button>
       </div>
       <Outlet />
@@ -64,9 +68,9 @@ export function ReviewPage() {
   return (
     <div>
       <div>
-        <Link to={"../"}Go back></Link>
+        <Link to={"../"}>Go back</Link>
       </div>
-      <h1>review page</h1>
+      <h1>review Page</h1>
     </div>
   );
 }
@@ -74,10 +78,7 @@ export function ReviewPage() {
 export function OverviewPage() {
   return (
     <div>
-      <div>
-        <Link to={"../"}Go back></Link>
-      </div>
-      <h1>overview page</h1>
+      <h1>Overview Page</h1>
     </div>
   );
 }
